@@ -133,6 +133,28 @@ Two species counts are considered different if their decimal representations wit
 # print(num_equiv_species_pairs(species_pairs2))
 
 
+Problem 6: Most Popular Even Destination
+Given a list of integers destinations, where each integer represents the popularity score of a destination, return the most popular even destination.
+If there is a tie, return the smallest one. If there is no such destination, return -1.
+def most_popular_even_destination(destinations):
+    dic = {}
+    for i in destinations:
+        if i % 2 == 0:
+            dic[i] = dic.get(i,0) + 1
+    if not dic:
+        return -1
+    m = max(dic.values())
+    res = [k for k, v in dic.items() if v == m]
+    return min(res)
+
+destinations1 = [0, 1, 2, 2, 4, 4, 1]
+destinations2 = [4, 4, 4, 9, 2, 4]
+destinations3 = [29, 47, 21, 41, 13, 37, 25, 7]
+
+print(most_popular_even_destination(destinations1))
+print(most_popular_even_destination(destinations2))
+print(most_popular_even_destination(destinations3))
+
 
 
 
